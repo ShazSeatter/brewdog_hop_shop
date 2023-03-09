@@ -1,9 +1,14 @@
 import React from "react";
 
-const BeerItem = function () {
+const BeerItem = function ({beer, onBeerClicked}) {
+
+    const handleClick = function () {
+        onBeerClicked(beer)
+    }
+
     return (
         <>
-        <h3>This is the BeerItem</h3>
+        <h3 onClick={handleClick}>{beer.name}</h3>
         </>
     )
 }
