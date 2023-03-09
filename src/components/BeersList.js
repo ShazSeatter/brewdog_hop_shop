@@ -1,18 +1,30 @@
 import React from "react";
 import BeerItem from "./BeerItem";
+import BeerDetail from "./BeerDetail";
 
-const BeersList = function ({beers, onBeerClicked}) {
+
+const BeersList = function ({beers, onBeerClicked, selectedBeer, handleAddToFavorites}) {
+
     const beerItems = beers.map((beer, index) => {
-        return <BeerItem key={beer.id} beer={beer} index={index} onBeerClicked={onBeerClicked}/>
+        return <BeerItem key={beer.id} beer={beer} index={index} onBeerClicked={onBeerClicked} handleAddToFavorites={handleAddToFavorites}/>
 
     })
- 
+
+
+
     return (
         <>
-        <h2>This is the BeersList</h2>
-        {beerItems}
+        <h2>Beers</h2>
+            {selectedBeer ? <BeerDetail beer={selectedBeer}/> : null}
+
+        <div className="beer-list-container">
+        <ul>
+            {beerItems}
+        </ul>
+
+        </div>
         </>
     )
 }
 
-export default BeersList; 
+export default BeersList;
