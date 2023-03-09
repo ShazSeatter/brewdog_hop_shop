@@ -3,7 +3,7 @@ import BeerDetail from "./BeerDetail";
 import AddToFavoritesButton from "../components/AddToFavoritesButton";
 
 
-const BeerItem = function ({beer, onBeerClicked, selectedBeer, handleAddToFavorites}) {
+const BeerItem = function ({beer, onBeerClicked, selectedBeer, handleAddToFavorites, handleRemoveFromFavorites, favorites}) {
     
 
 
@@ -28,7 +28,7 @@ const BeerItem = function ({beer, onBeerClicked, selectedBeer, handleAddToFavori
            <li key={index}>{favorite}</li>
             )}
         </ul> */}
-          <AddToFavoritesButton beer={beer} onAddToFavorites={handleAddToFavorites}/>
+          <AddToFavoritesButton beer={beer} onAddToFavorites={handleAddToFavorites} onRemoveFromFavorites={handleRemoveFromFavorites} favorites={favorites}/>
         </li>
         </div>
         </>

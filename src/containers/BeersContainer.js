@@ -38,16 +38,24 @@ const BeersContainer = function () {
 
     };
 
+    const handleRemoveFromFavorites = (favorite) => {
+        const updatedFavorites = favorites.filter((item) => item !== favorite)
+        setFavorites(updatedFavorites)
+    }
     return (
         <>
         <h1>BrewDog's HopShop</h1>
         <h3>Favorites List:</h3>
          <ul>
             {favorites.map((favorite, index) =>
-                <li key={index}>{favorite}</li>
+                <li key={index}>{favorite}
+                <button onClick={() => handleRemoveFromFavorites(favorite)}>
+                    Remove from Favorites
+                </button>
+                </li>
             )}
         </ul>
-         <BeersList beers={beers} onBeerClicked={onBeerClicked} selectedBeer={selectedBeer} handleAddToFavorites={handleAddToFavorites}/>
+         <BeersList beers={beers} onBeerClicked={onBeerClicked} selectedBeer={selectedBeer} handleAddToFavorites={handleAddToFavorites} handleRemoveFromFavorites={handleRemoveFromFavorites} favorites={favorites}/>
 
 
         {/* {selectedBeer ? <BeerDetail beer={selectedBeer}/> : null} */}
