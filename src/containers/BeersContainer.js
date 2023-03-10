@@ -10,13 +10,12 @@ const BeersContainer = function () {
     const [selectedBeer, setSelectedBeer] = useState(null);
     const [favorites, setFavorites] = useState([]);
    
-    // const [favorite, setFavorite] = useState("false");
-
-
     // useEffect - initall set-up
+    // doesn't run all the time - stops an infinite loop from happening 
     useEffect(() => {
         getBeers(); // array of 40 objects
     }, []);
+
 
     // API call to get data for useEffect to use
     const getBeers = async function() {

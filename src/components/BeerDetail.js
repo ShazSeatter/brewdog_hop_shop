@@ -14,7 +14,7 @@ const BeerDetail = function({beer}) {
 
 
     return (
-        <div>
+        <div className="beer-details">
             <img src={beer.image_url} alt="" />
             <ul>
             <p>Ingredients for {beer.name}</p>
